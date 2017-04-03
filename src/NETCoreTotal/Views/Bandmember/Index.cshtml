@@ -1,0 +1,25 @@
+﻿@using MyHobbies;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Band</title>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+</head>
+<body>
+    <h1>List of bands</h1>
+
+    <ul>
+        @foreach (Band band in ViewBag.bands)
+        {
+            <li>@band.Name (@band.Year)</li>
+            <ul>
+                @foreach (Bandmember member in band.Members)
+                {
+                    <li>@member.Name, @member.Age, @member.Gender, @(member.Alive ? "alive" : "dead")</li>
+                }
+            </ul>
+        }
+    </ul>
+</body>
+</html>
